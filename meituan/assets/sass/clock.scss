@@ -1,0 +1,73 @@
+//@import "compass/reset";
+//@import "compass/css3";
+
+$bigDia:500px;
+.clock {
+    width: $bigDia;
+    height: $bigDia;
+    border: 3px solid #666;
+    border-radius: 50%;
+    margin: 30px auto;
+    position: relative;
+}
+
+p.dial {
+    width: 4px;
+    height: 500px;
+    background-color: #333;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin-left: -2px;
+}
+
+@for $i from 1 through 6{
+	p.dial:nth-of-type(#{$i}){ transform: rotate((360/12*$i)+deg); }
+}
+
+$coverOffset:20;
+.cover{
+	width: $coverOffset+px;
+	height: $coverOffset+px;
+	position: absolute;
+	border: ($bigDia - $coverOffset - $coverOffset)/2 solid #fff;
+	left: $coverOffset/2+px;
+	top: $coverOffset/2+px;
+	border-radius:50%;
+	background-color: #ccc;
+}
+
+/* .hour{
+	width:8px;
+	height:130px;
+	background-color: #666;
+	position: absolute;
+	left:50%;
+	bottom:50%;
+	margin:0 0 0 -4px;
+	@include transform-origin(50%,100%);
+	@include animation(lap 3600*24s steps(12) infinite);
+}
+.min{
+	@extend .hour;
+	width:4px;
+	height:170px;
+	margin:0 0 0 -2px;
+	@include animation(lap 3600s steps(60) infinite);
+}
+.sec{
+	@extend .hour;
+	width:2px;
+	height:210px;
+	margin:0 0 0 -1px;
+	@include animation(lap 60s steps(60) infinite);
+}
+
+@include keyframes(lap){
+	0%{
+		@include transform(rotate(0));
+	}
+	100%{
+		@include transform(rotate(360deg));
+	}
+} */
